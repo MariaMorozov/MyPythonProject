@@ -1,0 +1,16 @@
+---
+- name: int service deployment
+hosts: all
+tasks:
+
+  - name: validate docker service
+      service:
+        name: docker
+        state: running
+    become: yes
+
+  - name: update container version
+      docker_container:
+        name: int_service
+        image: "docker.io/MyPythonProject:{{ version }}"
+        state: running
