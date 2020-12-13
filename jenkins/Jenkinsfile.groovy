@@ -6,7 +6,10 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Check working dir'
+                dir('CoolNewDirectory') {
+                    git branch: 'main', credentialsId: 'github_cred', url: 'https://github.com/MariaMorozov/MyPythonProject.git'
+                    echo 'Check working dir'
+                }
             }
         }
         stage('Check Working Directory') {
