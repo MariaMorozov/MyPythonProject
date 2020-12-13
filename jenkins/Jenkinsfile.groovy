@@ -4,23 +4,25 @@ pipeline {
     agent any
 
     stages {
-        stage('Input') {
+        stage('Build Docker image') {
             steps {
-                script {
-                    userInput = input message: 'Please provide your input', ok: 'confirm', parameters: [choice(name: '', choices: ['option 1', 'option2'], description: '')]
-                }
-            }
-
-        }
-        stage('Hello') {
-            steps {
-                dir('CoolNewDirectory') {
-                    git branch: 'main', credentialsId: 'github_cred', url: 'https://github.com/MariaMorozov/MyPythonProject.git'
-                    echo 'Check working dir'
+                dir('docker_api'){
+                    script {
+                        sh "docker build -t MyPythonProject ."
+                    }
                 }
             }
         }
-        stage('Check Working Directory') {
+        stage('Test Docker image') {
+            steps {
+                dir('docker_api/test') {
+                    script{
+                        sh "sh ./basic.tests.sh"
+                    }
+                }
+            }
+        }
+        stage('Upload image to repository') {
             steps {
                 sh "pwd"
             }
