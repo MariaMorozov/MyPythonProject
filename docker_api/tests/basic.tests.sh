@@ -11,7 +11,7 @@ check_result() {
 }
 
 for city in 'Modiin' 'New York'; do
- sudo docker run MyPythonProject -c $city | grep longitude
+ sudo docker run mypythonproject -c $city | grep longitude
  check_result longitude
 
 # sudo docker run MyPythonProject - c $city |grep weather
