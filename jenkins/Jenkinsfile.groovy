@@ -10,7 +10,7 @@ pipeline {
             steps {
                 dir('docker_api'){
                     script {
-                        sh "docker build -t mypythonproject ."
+                        sh "sudo docker build -t mypythonproject ."
                     }
                 }
             }
@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Print Inputed string') {
             steps {
-                println("Input was " + userInput)
+                println("Empty " )
             }
         }
     }
