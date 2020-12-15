@@ -10,7 +10,7 @@ pipeline {
             steps {
                 dir('docker_api'){
                     script {
-                        sh "docker build -t MyPythonProject ."
+                        sh "docker build -t mypythonproject ."
                     }
                 }
             }
