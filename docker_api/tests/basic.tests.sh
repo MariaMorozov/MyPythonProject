@@ -10,7 +10,7 @@ check_result() {
   fi
 }
 
-for city in 'Modiin' 'New York'; do
+for city in 'Modiin' 'Moscow'; do
  sudo docker run mypythonproject -c $city | grep "lon"
  check_result "lon"
 
