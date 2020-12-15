@@ -1,7 +1,9 @@
 def userInput
 
 pipeline {
-    agent any
+    agent {
+        label 'docker-node'
+    }
 
     stages {
         stage('Build Docker image') {
