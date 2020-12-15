@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Test Docker image') {
             steps {
-                dir('docker_api/test') {
+                dir('docker_api/tests') {
                     script{
                         sh "./basic.tests.sh"
                     }
