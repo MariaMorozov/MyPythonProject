@@ -19,6 +19,7 @@ pipeline {
             steps {
                 dir('docker_api/tests') {
                     script{
+                        sh "sudo chmod 777 basic.tests.sh"
                         sh "./basic.tests.sh"
                     }
                 }
