@@ -13,10 +13,8 @@ check_result() {
 for city in 'Modiin' 'Moscow'; do
  sudo docker run mypythonproject -c $city | grep "lon"
  check_result "lon"
-
-# sudo docker run MyPythonProject - c $city |grep weather
-# check_result weather
-
+ sudo docker run mypythonproject -c $city | grep "weather"
+ check_result "weather"
 done
 
 exit 0
