@@ -19,7 +19,7 @@ pipeline {
             steps {
                 dir('docker_api/test') {
                     script{
-                        sh "sh ./basic.tests.sh"
+                        sh "./basic.tests.sh"
                     }
                 }
             }
