@@ -4,8 +4,8 @@ LABEL maintainer="maria.morozov@gmail.com"
 RUN mkdir /docker_api
 RUN chmod -R 755 /docker_api
 #RUN pip install -r /requirements.txt
-RUN pip install -r requests
-RUN pip install -r geopy
+RUN pip install requests
+RUN pip install geopy
 COPY *.py /docker_api/
 COPY configurations.json /docker_api/
 COPY requirements.txt /docker_api/
