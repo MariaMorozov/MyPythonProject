@@ -14,8 +14,8 @@ for city in 'Modiin' 'New York'; do
  sudo docker run MyPythonProject -c $city | grep longitude
  check_result longitude
 
- sudo docker run MyPythonProject - c $city |grep weather
- check_result weather
+# sudo docker run MyPythonProject - c $city |grep weather
+# check_result weather
 
 done
 
