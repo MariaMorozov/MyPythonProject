@@ -22,7 +22,7 @@ def load_host():
 
 def main():
     parser = argparse.ArgumentParser(description='Weather in your city')
-    parser.add_argument('-c', '--city', dest='city', help='city', default='New York')
+    parser.add_argument('-c', '--city', dest='city', help='city', default='Modiin')
 
     args = parser.parse_args()
     city = args.city

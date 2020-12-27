@@ -12,11 +12,12 @@ check_result() {
   fi
 }
 
-for city in 'Modiin' 'Moscow'; do
- sudo docker run -c $city | grep "lon"
- check_result $city
- sudo docker run -c $city | grep "weather"
- check_result $city
-done
+sudo docker run | grep "lon"
+#for city in 'Modiin' 'Moscow'; do
+# sudo docker run -c $city | grep "lon"
+# check_result $city
+# sudo docker run -c $city | grep "weather"
+check_result "lon"
+#done
 
 exit 0
