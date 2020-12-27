@@ -19,5 +19,6 @@ sudo docker run $TAG | grep "lon"
 # sudo docker run -c $city | grep "weather"
 check_result "lon"
 #done
+#test
 
 exit 0
