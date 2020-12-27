@@ -3,7 +3,7 @@
 check_result() {
   RESULT=$?
   MESSAGE=$1
-18.223.184.126
+
   if [ $RESULT == 0 ]; then
     echo [SUCCESS] $MESSAGE
   else
@@ -13,9 +13,9 @@ check_result() {
 }
 
 for city in 'Modiin' 'Moscow'; do
- sudo docker run --city $city | grep "lon"
+ sudo docker run -c $city | grep "lon"
  check_result $city
- sudo docker run --city $city | grep "weather"
+ sudo docker run -c $city | grep "weather"
  check_result $city
 done
 
