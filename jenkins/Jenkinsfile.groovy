@@ -29,7 +29,7 @@ pipeline {
                     script{
                         try {
                             sh "sudo chmod 755 basic.tests.sh"
-                            sh "./basic.tests.sh mariamorozov/mypythonproject:${latestVersion}-${lastCommit"
+                            sh "./basic.tests.sh mariamorozov/mypythonproject:${latestVersion}-${lastCommit}"
 
                         } catch (err){
                             println("Error thrown on test file execution")
