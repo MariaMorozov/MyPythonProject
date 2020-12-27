@@ -12,7 +12,7 @@ check_result() {
   fi
 }
 
-sudo docker run | grep "lon"
+sudo docker run mypythonproject| grep "lon"
 #for city in 'Modiin' 'Moscow'; do
 # sudo docker run -c $city | grep "lon"
 # check_result $city
