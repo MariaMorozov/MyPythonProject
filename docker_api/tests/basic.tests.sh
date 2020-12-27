@@ -1,5 +1,5 @@
 #!/bin/bash
-#TAG=$1
+TAG=$1
 check_result() {
   RESULT=$?
   MESSAGE=$1
@@ -12,7 +12,7 @@ check_result() {
   fi
 }
 
-sudo docker run mypythonproject| grep "lon"
+sudo docker run $TAG | grep "lon"
 #for city in 'Modiin' 'Moscow'; do
 # sudo docker run -c $city | grep "lon"
 # check_result $city
