@@ -1,21 +1,22 @@
 #!/bin/bash
+TAG=$1
 check_result() {
   RESULT=$?
-  MESSAGE1=$1
-  MESSAGE2=$2
+  MESSAGE=$1
+
   if [ $RESULT == 0 ]; then
-    echo [ SUCCESS ] $MESSAGE1 $MESSAGE2
+    echo [SUCCESS] $MESSAGE
   else
-    echo [ FAIL ] $MESSAGE1 $MESSAGE2
+    echo [FAIL] $MESSAGE
     exit 1
   fi
 }
 
 for city in 'Modiin' 'Moscow'; do
- sudo docker run mypythonproject -c $city | grep "lon"
- check_result $city lontitude
- sudo docker run mypythonproject -c $city | grep "weather"
- check_result $city weather
+ sudo docker run mypythonproject:$TAG -c $city | grep "lon"
+ check_result $city
+ sudo docker run mypythonproject:$TAG -c $city | grep "weather"
+ check_result $city
 done
 
 exit 0

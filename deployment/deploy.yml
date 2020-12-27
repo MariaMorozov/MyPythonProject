@@ -1,48 +1,51 @@
 - name: int service deployment
   hosts: myhosts
+  become: yes
   tasks:
     - name: Make sure docker is installed
       apt:
         name: docker.io
         state: present
         update_cache: yes
-      become: yes
+
 
     - name: Docker service start
       service:
         name: docker
         state: started
-      become: yes
+
 
     - name: Docker service enable
       service:
         name: docker
         enabled: yes
-      become: yes
 
-    - name: Export image
-      shell: "docker save mypythonproject:latest > /tmp/mypythonproject.tar"
-      become: yes
-      delegate_to: 127.0.0.1
+    - name: Start mypythonproject container
+      shell: "docker run mariamorozov/mypythonproject:{{ tag }} -w perfect"
 
-    - name: set permissions
-      file:
-        path: /tmp/mypythonproject.tar
-        owner: ubuntu
-        group: ubuntu
-        mode: '0777'
-      become: yes
-      delegate_to: 127.0.0.1
-
-    - name: Copy Docker image to remote location
-      copy:
-        src: /tmp/mypythonproject.tar
-        dest: /tmp/mypythonproject.tar
-
-    - name: Load Docker image
-      docker_image:
-        name: mypythonproject
-        tag: latest
-        load_path: /tmp/mypythonproject.tar
-      become: yes
+#    - name: Export image
+#      shell: "docker save mypythonproject:latest > /tmp/mypythonproject.tar"
+#      become: yes
+#      delegate_to: 127.0.0.1
+#
+#    - name: set permissions
+#      file:
+#        path: /tmp/mypythonproject.tar
+#        owner: ubuntu
+#        group: ubuntu
+#        mode: '0777'
+#      become: yes
+#      delegate_to: 127.0.0.1
+#
+#    - name: Copy Docker image to remote location
+#      copy:
+#        src: /tmp/mypythonproject.tar
+#        dest: /tmp/mypythonproject.tar
+#
+#    - name: Load Docker image
+#      docker_image:
+#        name: mypythonproject
+#        tag: latest
+#        load_path: /tmp/mypythonproject.tar
+#      become: yes
 
