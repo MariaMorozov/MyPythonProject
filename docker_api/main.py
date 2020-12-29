@@ -30,12 +30,8 @@ def main():
     logger.info("Parameters passed are " + str(args))
     my_response = send.send(load_key(), load_host(), city)
 
-    print(my_response)
-
+    # print(my_response)
 
 
 if __name__ == "__main__":
     main()
-
-
-# send.test()
