@@ -11,7 +11,7 @@ check_result() {
     exit 1
   fi
 }
-RUN = "sudo docker run $TAG"
+RUN="sudo docker run $TAG"
 #sudo docker run $TAG | grep "lon"
 for city in 'Modiin' 'Moscow'; do
   $RUN -c $city | grep $city
