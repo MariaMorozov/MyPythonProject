@@ -18,7 +18,7 @@ for city in 'Modiin' 'Moscow'; do
   $RUN -c $city | grep $city
   check_result "city_name $city"
   $RUN -c $city | grep "lon"
-  check_result "$city lon"
+  check_result "$city longitude"
   $RUN -c $city | grep "weather"
   check_result "$city weather"
 
