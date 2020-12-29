@@ -14,9 +14,9 @@ check_result() {
 
 #sudo docker run $TAG | grep "lon"
 for city in 'Modiin' 'Moscow'; do
-  sudo docker run -c $city | grep "lon"
+  sudo docker run $TAG -c $city | grep "lon"
   check_result $city
-  sudo docker run -c $city | grep "weather"
+  sudo docker run $TAG -c $city | grep "weather"
   check_result "weather"
 done
 
