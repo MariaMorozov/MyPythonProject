@@ -6,9 +6,9 @@ check_result() {
   SECOND-MESSAGE=$2
 
   if [ $RESULT == 0 ]; then
-    echo [SUCCESS] $MESSAGE
+    echo [SUCCESS] $MESSAGE $SECOND-MESSAGE
   else
-    echo [FAIL] $MESSAGE
+    echo [FAIL] $MESSAGE $SECOND-MESSAGE
     exit 1
   fi
 }
