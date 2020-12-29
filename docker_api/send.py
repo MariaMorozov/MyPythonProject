@@ -35,5 +35,3 @@ def send(key, host, city):
     return response
 
 
-if __name__ == "__main__":
-    send("9b8549f446mshf1f8fca475723dap1759b1jsn1f7a19aa0e50", "weatherbit-v1-mashape.p.rapidapi.com", "Modiin")

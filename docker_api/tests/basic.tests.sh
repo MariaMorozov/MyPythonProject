@@ -15,9 +15,16 @@ check_result() {
 #sudo docker run $TAG | grep "lon"
 for city in 'Modiin' 'Moscow'; do
   sudo docker run $TAG -c $city | grep "lon"
-  check_result $city
+  check_result "lon"
   sudo docker run $TAG -c $city | grep "weather"
   check_result "weather"
+  if [ sudo docker run $TAG -c $city  ['city_name'] = $city ]
+  then
+  check_result $city
+  else
+  echo "City name problem"
+  fi
 done
 
 exit 0
+

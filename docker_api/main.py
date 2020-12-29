@@ -33,5 +33,9 @@ def main():
     print(my_response)
 
 
-main()
+
+if __name__ == "__main__":
+    main()
+
+
 # send.test()
