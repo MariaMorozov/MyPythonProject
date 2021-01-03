@@ -18,7 +18,7 @@ containerName=$(echo $TAG | cut -d'-' -f2)
 sudo docker rm -f $(sudo docker ps -aq)
 sudo docker run -d -p 5000:5000 --name $containerName $TAG
 sleep 5
-for for city in 'Modiin' 'Moscow'; do
+for city in 'Modiin' 'Moscow'; do
   curl -s -X POST --header "Content-Type: application/json" --data '{"city":"'$city'"}' http://localhost:5000 | grep $city
   check_result $city
 
