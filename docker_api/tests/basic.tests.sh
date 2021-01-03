@@ -20,9 +20,9 @@ echo "removed"
 sudo docker run -d -p 5000:5000 --name $containerName $TAG
 echo "run $containerName"
 sleep 5
-for city in 'Modiin' 'Moscow'; do
+for city in 'Moscow'; do
   echo $city
-  curl -s -X POST --header "Content-Type: application/json" --data '{"city_name": "'$city'"}' http://localhost:5000 | grep $city
+  curl -s -X POST --header "Content-Type: application/json" --data '{"city": "'$city'"}' http://localhost:5000 | grep $city
   check_result $city
 
 #RUN="sudo docker run $TAG"
