@@ -28,7 +28,7 @@ pipeline {
                 dir('docker_api/tests') {
                     script{
                         try {
-//                            sh "sudo chmod 755 basic.tests.sh"
+                            sh "sudo chmod 755 basic.tests.sh"
                             sh "./basic.tests.sh mariamorozov/mypythonproject:${latestVersion}-${lastCommit}"
 
                         } catch (err){
