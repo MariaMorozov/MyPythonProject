@@ -20,10 +20,13 @@ echo "removed"
 sudo docker run -d -p 5000:5000 --name $containerName $TAG
 echo "run $containerName"
 sleep 5
-for city in 'Moscow'; do
+for city in 'Modiin' 'Moscow'; do
   echo $city
   curl -s -X POST --header "Content-Type: application/json" --data '{"city": "'$city'"}' http://localhost:5000 | grep $city
   check_result $city
+done
+
+exit 0
 
 #RUN="sudo docker run $TAG"
 ##sudo docker run $TAG | grep "lon"
@@ -35,7 +38,5 @@ for city in 'Moscow'; do
 #  $RUN -c $city | grep "weather"
 #  check_result "$city weather"
 
-done
 
-exit 0
 
