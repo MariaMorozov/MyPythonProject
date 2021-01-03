@@ -22,7 +22,7 @@ echo "run"
 sleep 5
 for city in 'Modiin' 'Moscow'; do
   echo $city
-  curl -s -X POST --header "Content-Type: application/json" --data '{"city":"'$city'"}' http://localhost:5000 | grep $city
+  curl -s -X POST --header "Content-Type: application/json" --data '{"city": '$city'}' http://localhost:5000 | grep $city
   check_result $city
 
 #RUN="sudo docker run $TAG"

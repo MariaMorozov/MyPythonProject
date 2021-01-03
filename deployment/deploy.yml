@@ -21,7 +21,7 @@
         enabled: yes
 
     - name: Start mypythonproject container
-      shell: "docker run mariamorozov/mypythonproject:{{ tag }} -c Modiin"
+      shell: "docker run -p 5000:5000 -d --restart always {{ tag }}"
 
 #    - name: Export image
 #      shell: "docker save mypythonproject:latest > /tmp/mypythonproject.tar"
