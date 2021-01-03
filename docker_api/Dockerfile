@@ -15,6 +15,6 @@ RUN pip install -r /docker_api/requirements.txt
 WORKDIR "/docker_api"
 #ADD api.py /
 #CMD [ "python3", "./api.py" ]
-ENTRYPOINT [ "/usr/local/bin/python3", "/docker_api/main.py" ]
-#ENV FLASK_APP=int.py
-#ENTRYPOINT ["/usr/local/bin/flask", "run", "--host=0.0.0.0"]
+#ENTRYPOINT [ "/usr/local/bin/python3", "/docker_api/main.py" ]
+ENV FLASK_APP=int.py
+ENTRYPOINT ["/usr/local/bin/flask", "run", "--host=0.0.0.0"]
