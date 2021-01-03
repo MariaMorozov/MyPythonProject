@@ -16,9 +16,12 @@ check_result() {
 containerName=$(echo $TAG | cut -d'-' -f2)
 
 sudo docker rm -f $(sudo docker ps -aq)
+echo "removed"
 sudo docker run -d -p 5000:5000 --name $containerName $TAG
+echo "run"
 sleep 5
 for city in 'Modiin' 'Moscow'; do
+  echo $city
   curl -s -X POST --header "Content-Type: application/json" --data '{"city":"'$city'"}' http://localhost:5000 | grep $city
   check_result $city
 
