@@ -28,4 +28,4 @@ def main():
     # data['key'] = 'value'
     # json_data = json.dumps(data)
 
-    return json_response['city']
+    return json_response['city_name']
