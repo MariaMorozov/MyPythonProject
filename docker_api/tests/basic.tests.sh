@@ -12,15 +12,25 @@ check_result() {
     exit 1
   fi
 }
-RUN="sudo docker run $TAG"
-#sudo docker run $TAG | grep "lon"
-for city in 'Modiin' 'Moscow'; do
-  $RUN -c $city | grep $city
-  check_result "city_name $city"
-  $RUN -c $city | grep "lon"
-  check_result "$city longitude"
-  $RUN -c $city | grep "weather"
-  check_result "$city weather"
+
+containerName=$(echo $TAG | cut -d'-' -f2)
+
+sudo docker rm -f $(sudo docker ps -aq)
+sudo docker run -d -p 5000:5000 --name $containerName $TAG
+sleep 5
+for for city in 'Modiin' 'Moscow'; do
+  curl -s -X POST --header "Content-Type: application/json" --data '{"city":"'$city'"}' http://localhost:5000 | grep $city
+  check_result $city
+
+#RUN="sudo docker run $TAG"
+##sudo docker run $TAG | grep "lon"
+#for city in 'Modiin' 'Moscow'; do
+#  $RUN -c $city | grep $city
+#  check_result "city_name $city"
+#  $RUN -c $city | grep "lon"
+#  check_result "$city longitude"
+#  $RUN -c $city | grep "weather"
+#  check_result "$city weather"
 
 done
 

@@ -5,7 +5,7 @@ RUN mkdir /docker_api
 EXPOSE 5000
 RUN chmod -R 755 /docker_api
 COPY * /docker_api/
-RUN pip install -r /docker_api/requirements.txt
+RUN pip3 install -r /docker_api/requirements.txt
 #RUN pip install requests
 #RUN pip install geopy
 
