@@ -14,7 +14,7 @@ def load_config():
         return key, host
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['POST'])   # POST GET PUT DELETE
 def main():
     data = request.get_json() or {}
     city = data['city']
