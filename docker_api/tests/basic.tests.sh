@@ -16,7 +16,7 @@ check_result() {
 containerName=$(echo $TAG | cut -d'-' -f2)
 
 sudo docker rm -f $(sudo docker ps -aq)
-echo "removed"
+echo "removed old containers"
 sudo docker run -d -p 5000:5000 --name $containerName $TAG
 echo "run $containerName"
 sleep 5
