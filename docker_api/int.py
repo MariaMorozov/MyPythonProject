@@ -16,17 +16,17 @@ def load_config():
 
 @app.route('/', methods=['POST'])   # POST GET PUT DELETE
 def main():
-    data = request.get_json() or {}
-    city = data['city']
-    key = load_config()[0]
-    host = load_config()[1]
-    response = send.send(key, host, city)
-    json_response = json.loads(response)
+    # data = request.get_json() or {}
+    # city = data['city']
+    # key = load_config()[0]
+    # host = load_config()[1]
+    # response = send.send(key, host, city)
+    # json_response = json.loads(response)
 
     # this can be used to custom construct json response
     # data = {}
     # data['key'] = 'value'
     # json_data = json.dumps(data)
 
-    return json_response
+    return "MyModiin"
     # ['city_name']
