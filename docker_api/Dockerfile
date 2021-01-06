@@ -4,11 +4,11 @@ LABEL maintainer="maria.morozov@gmail.com"
 RUN mkdir /docker_api
 
 RUN chmod -R 755 /docker_api
-
+COPY * /docker_api/
 RUN pip install -r /docker_api/requirements.txt
 
 WORKDIR "/docker_api"
-COPY * /docker_api/
+#COPY * /docker_api/
 EXPOSE 5000
 #ADD api.py /
 #CMD [ "python3", "./api.py" ]  # CMD flask run --host=0.0.0.0
