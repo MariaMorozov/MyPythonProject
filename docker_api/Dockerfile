@@ -5,7 +5,7 @@ RUN mkdir /docker_api
 
 RUN chmod -R 755 /docker_api
 
-RUN pip3 install -r /docker_api/requirements.txt
+RUN pip install -r /docker_api/requirements.txt
 
 WORKDIR "/docker_api"
 COPY * /docker_api/
