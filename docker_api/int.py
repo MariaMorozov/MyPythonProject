@@ -1,7 +1,6 @@
-from flask import Flask
-from flask import request
+from flask import Flask, request
 import json
-import send
+import send2
 
 app = Flask(__name__)
 
@@ -11,22 +10,26 @@ def load_config():
         configs = json.load(json_file)
         key = configs['configurations']['key']
         host = configs['configurations']['host']
+        print(f"{key}, {host}")
         return key, host
 
 
-@app.route('/', methods=['POST'])   # POST GET PUT DELETE
+@app.route('/', methods=['GET'])   # POST GET PUT DELETE
 def main():
-    # data = request.get_json() or {}
-    # city = data['city']
-    # key = load_config()[0]
-    # host = load_config()[1]
-    # response = send.send(key, host, city)
-    # json_response = json.loads(response)
+    print("started")
+    data = request.get_json() or {}
+    city = data['city']
+    print(city)
+    key = load_config()[0]
+    host = load_config()[1]
+    response = send2.send(key, host, city)
+    json_response = json.loads(response)
 
     # this can be used to custom construct json response
     # data = {}
     # data['key'] = 'value'
     # json_data = json.dumps(data)
 
-    return "MyModiin"
-    # ['city_name']
+    return json_response['city_name']
+
+main()
